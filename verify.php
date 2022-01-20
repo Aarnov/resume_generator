@@ -36,11 +36,6 @@ if(mysqli_stmt_execute($stmt)){
     </style>
 </head>
 <body>
-<h1>test</h1>
-<h1>test2</h1>
-<h1>test 3</h1>
-<h1>test4</h1>
-<h1>test 5</h1>
 <div container>
     <div class="container p-5 my-5">
 
