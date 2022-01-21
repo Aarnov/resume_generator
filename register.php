@@ -1,6 +1,7 @@
 
 <?php
 require_once "config.php";
+session_start();
 
 $email=$password=$confirm_password="";
 $email_err=$password_err=$confirm_password_err = "";
@@ -45,20 +46,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
     if (empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
-        $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (email, password,verification_code) VALUES (?, ?,?)";
         $stmt = mysqli_prepare($conn,$sql);
 
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "ssi", $param_username, $param_password,$param_verification_code);
 
             // Set these parameters
             $param_username = $_POST["email"];
             $param_password = password_hash($password, PASSWORD_DEFAULT);
+            $param_verification_code=rand(1000,9999);
 
 
             // Try to execute the query
             if (mysqli_stmt_execute($stmt)) {
-                $verification_code = rand(1000,9999);
+                $verification_code = $param_verification_code;
                 $_SESSION["code"]=$verification_code;
                 $to_email = $_POST['email'];
                 $subject = "Email verification";

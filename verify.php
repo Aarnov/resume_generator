@@ -1,23 +1,26 @@
 <?php
 require_once "config.php";
 session_start();
-if(!isset($_SESSION["to_email"])){
-    echo "session not set";
-}
-$sql = "INSERT INTO users (verification_code) VALUES (?)";
-$stmt=mysqli_prepare($conn,$sql);
-if($stmt){
-    mysqli_stmt_bind_param($stmt,"i",$verification_code);
-    $verification_code=$_POST['code'];
-if(mysqli_stmt_execute($stmt)){
-    echo"success";
-}else{
-    echo"no success";
-}
-}
+if($_SERVER['REQUEST_METHOD']=="POST") {
+    $insert_verification_code = $_POST["code"];
+    echo($insert_verification_code);
+    for ($i = 0; $i < 5; $i++) {
+        if ($insert_verification_code != $_SESSION["code"]) {
+            echo("Invalid code...Try again.");
+        } else {
+            header("location:login.php");
+        }
+    }
+    $sql = "DELETE * FROM users WHERE email=?";
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "s", $param_email);
+        //set parameter
 
-
+        $param_email = $_SESSION['to_email'];
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +39,7 @@ if(mysqli_stmt_execute($stmt)){
     </style>
 </head>
 <body>
-<div container>
+<div class="container">
     <div class="container p-5 my-5">
 
     <div class="container p-5 my-5 bg-dark text-white">
@@ -52,7 +55,7 @@ if(mysqli_stmt_execute($stmt)){
                 <h5 modal-title >Verify</h5>
             </div>
             <div class="modal-body">
-                <form action="verify.php method="post">
+                <form action="verify.php" method="POST">
                     <div>
                     <label for="code" class="form-label text-dark"> Enter the verification code</label>
                         <input type="number" name="code" class="form-control" id="code"></br>
