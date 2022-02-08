@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $email_err = "Email cannot be empty";
     }
     else {
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT id FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $sql);
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -123,8 +123,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                     <button type="submit" class="btn btn-secondary w-100">Sign Up</button>
                 </form>
             <div class="card-footer text-center">
-                <small>&copy;Aarnov Adhikari</small>
+                <small>Already signed up?<a href="login.php">Click here</a></small>
             </div>
+                <div class="card-footer text-center">
+                    <small>&copy;Aarnov Adhikari</small>
+                </div>
         </div>
     </div>
 
