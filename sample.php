@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-black navbar-dark">
     <div class="container">
-        <a href="main_page.php" class="navbar-brand nav-link">Cover letter Generator</a>
+        <a href="main_page.php" class="navbar-brand nav-link">Resume Generator</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">

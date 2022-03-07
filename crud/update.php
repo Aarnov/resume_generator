@@ -62,7 +62,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Records updated successfully. Redirect to landing page
-                header("location: retrieve_to.php");
+                header("location: new_retrieve.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -131,7 +131,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     <title>Edit Data</title>
 </head>
 <body>
-<a href="retrieve_to.php">Home</a>
+<a href="new_retrieve.php.php">Home</a>
 <br><br>
 <form method="post" action="">
     <input type="text" name="first_name" value="<?php echo $first_name; ?>"<br>

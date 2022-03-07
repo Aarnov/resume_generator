@@ -14,7 +14,7 @@
 <!--navigation bar-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a href="main_page.php" class="navbar-brand nav-link">Cover letter Generator</a>
+        <a href="main_page.php" class="navbar-brand nav-link">Resume Generator</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -39,7 +39,7 @@
     <div class="container">
         <div class="d-flex">
             <div class="text-center">
-                <h1>Free Online</br> <span class="text-primary">Cover Letter Generator</span></h1>
+                <h1>Free Online</br> <span class="text-primary">Resume Generator</span></h1>
                 <p class="lead my-4">Our cover letter builder replaces difficult creative writing with a quick and accessible tool. Increase your interview chances, stand out from the crowd, apply for formal jobs and most importantly - let your professional story shine and resonate with employers!</p>
             <a href="make_your_own.php" class="btn btn-success btn-warning btn-lg">Create yours now</a>
             </div>
@@ -70,7 +70,7 @@
                 <div class="card bg-secondary text-light">
                     <div class="card-body text-center">
                         <h2><i class="bi bi-trophy "></i></h2>
-                        <h5 class="card-title text-dark">
+                        <h5 class="card-title text-black">
                             Make a resume that wins interviews
                         </h5>
                         <p class="card-text">

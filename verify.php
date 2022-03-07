@@ -3,14 +3,11 @@ require_once "config.php";
 session_start();
 if($_SERVER['REQUEST_METHOD']=="POST") {
     $insert_verification_code = $_POST["code"];
-    echo($insert_verification_code);
-    for ($i = 0; $i < 5; $i++) {
         if ($insert_verification_code != $_SESSION["code"]) {
             echo("Invalid code...Try again.");
         } else {
             header("location:login.php");
         }
-    }
     $sql = "DELETE * FROM users WHERE email=?";
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "s", $param_email);
