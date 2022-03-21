@@ -129,17 +129,62 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     <html>
 <head>
     <title>Edit Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
 <a href="new_retrieve.php.php">Home</a>
 <br><br>
-<form method="post" action="">
-    <input type="text" name="first_name" value="<?php echo $first_name; ?>"<br>
-    <input type="text" name="last_name" value="<?php echo $last_name; ?>"<br>
-    <input type="email" name="email" value="<?php echo $email; ?>" <br>
-    <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-    <input type="submit" value="update">
-</form>
+<!--<form method="post" action="">-->
+<!--    <input type="text" name="first_name" value="--><?php //echo $first_name; ?><!--"<br>-->
+<!--    <input type="text" name="last_name" value="--><?php //echo $last_name; ?><!--"<br>-->
+<!--    <input type="email" name="email" value="--><?php //echo $email; ?><!--" <br>-->
+<!--    <input type="hidden" name="id" value="--><?php //echo $id; ?><!--"/>-->
+<!--    <input type="submit" value="update">-->
+<!--</form>-->
+
+
+<div class="container-fluid vh=100">
+    <div class="row justify-content-center vh-100">
+        <div class="card w-25 my-auto shadow">
+            <div class="card-header text-center bg-primary text-white w-1000">
+                <h2>Update Form</h2>
+            </div>
+            <div class="card-body">
+                <form action="new_retrieve.php" method="post">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" name="first_name" class="form-control" id="first_name" value="<?php echo $first_name; ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" id="last_name" value="<?php echo $last_name; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" value="<?php echo $email; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file"  name="image" class="form-control" id="image" value="">
+                    </div>
+                    </br>
+                    <button type="submit" class="btn btn-secondary w-100">Update</button>
+                </form>
+                <div class="card-footer text-center">
+                    <medium>View list?  <A href="new_retrieve.php">Click here</A> </medium>
+                </div>
+                <div class="card-footer text-center">
+                    <small>&copy;Aarnov Adhikari</small>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+    </html>
+
 
 </body>
-    </html><?php
+    </html>

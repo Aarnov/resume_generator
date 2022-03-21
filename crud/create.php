@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!--navigation bar-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a href="main_page.php" class="navbar-brand nav-link">Resume Generator</a>
+        <a href="../main_page.php" class="navbar-brand nav-link">Resume Generator</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="crud/create.php" class="nav-link">My Info</a>
                 </li>
                 <li class="nav-item">
-                    <a href="logout.php" class="nav-link">Sign Out</a>
+                    <a href="../logout.php" class="nav-link">Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="file"  name="image" class="form-control" id="image" placeholder="">
                     </div>
                     </br>
-                    <button type="submit" class="btn btn-secondary w-100">Enter</button>
+                    <button type="submit" class="btn btn-secondary w-100">Add</button>
                 </form>
                 <div class="card-footer text-center">
                     <medium>View list?  <A href="new_retrieve.php">Click here</A> </medium>
