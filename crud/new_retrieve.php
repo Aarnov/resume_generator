@@ -13,6 +13,27 @@ $result = mysqli_query($conn, $sql)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a href="../main_page.php" class="navbar-brand nav-link">Resume Generator</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="sample.php" class="nav-link" >Sample</a>
+                </li>
+                <li class="nav-item">
+                    <a href="make_your_own.php" class="nav-link" >Make your own</a>
+                </li>
+                <li class="nav-item">
+                    <a href="crud/create.php" class="nav-link">My Info</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../logout.php" class="nav-link">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container-fluid vh=100">
     <div class="row justify-content-center ">
                 <a href="create.php">Create New</a>
