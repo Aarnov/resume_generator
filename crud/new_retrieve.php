@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["loggedin"])) {
+    header("location:../login.php");
+}
+
 require_once "config_demo.php";
 $sql = "SELECT * FROM persons";
 $result = mysqli_query($conn, $sql)
@@ -19,13 +24,13 @@ $result = mysqli_query($conn, $sql)
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="sample.php" class="nav-link" >Sample</a>
+                    <a href="../sample.php" class="nav-link" >Sample</a>
                 </li>
                 <li class="nav-item">
-                    <a href="make_your_own.php" class="nav-link" >Make your own</a>
+                    <a href="../make_your_own.php" class="nav-link" >Make your own</a>
                 </li>
                 <li class="nav-item">
-                    <a href="crud/create.php" class="nav-link">My Info</a>
+                    <a href="create.php" class="nav-link">My Info</a>
                 </li>
                 <li class="nav-item">
                     <a href="../logout.php" class="nav-link">Sign Out</a>

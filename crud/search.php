@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["loggedin"])) {
+    header("location:../login.php");
+}
+
 require_once "config_demo.php";
 if (isset($_POST["search_keyword"]) && isset($_POST["search_keyword"])){
     $search_keyword=$_POST["search_keyword"];
@@ -30,14 +35,15 @@ if (isset($_POST["search_keyword"]) && isset($_POST["search_keyword"])){
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="sample.php" class="nav-link" >Sample</a>
+                    <a href="../sample.php" class="nav-link" >Sample</a>
                 </li>
                 <li class="nav-item">
-                    <a href="make_your_own.php" class="nav-link" >Make your own</a>
+                    <a href="../make_your_own.php" class="nav-link" >Make your own</a>
                 </li>
                 <li class="nav-item">
-                    <a href="crud/create.php" class="nav-link">My Info</a>
+                    <a href="create.php" class="nav-link">My Info</a>
                 </li>
+
                 <li class="nav-item">
                     <a href="../logout.php" class="nav-link">Sign Out</a>
                 </li>
@@ -60,15 +66,14 @@ if (isset($_POST["search_keyword"]) && isset($_POST["search_keyword"])){
 <?php
 if(isset($result)) {
     if (mysqli_num_rows($result) == 0) {
-        echo "<table border='1' class='table-dark'>";
-        echo "<tr>";
-        echo "<td colspan='7'>No data found!!!</td>";
-        echo "</tr>";
-        echo "</table>";
+        if (mysqli_num_rows($result) == 0) {
+            echo "<tr>";
+            echo "<td colspan='7'>No data found!!! Try again...</td>";
+            echo "</tr>";
+        }
     }else{
        echo" <table border=1 class='table table-dark'>";
-
-    echo"<tr>";
+       echo"<tr>";
         echo"<th>id</th>";
         echo"<th>Image</th>";
         echo" <th>First Name</th>";
@@ -89,7 +94,7 @@ if(isset($result)) {
             <td><?php echo$row['first_name']?></td>
             <td><?php echo$row['last_name']?></td>
             <td><?php echo $row['email']?></td>
-            <td><a href="update_details.php?id=<?php echo $row['id']?>">Edit</td>
+            <td><a href="update.php?id=<?php echo $row['id']?>">Edit</td>
             <td><a href="delete_detail.php?id=<?php echo $row['id']?>">Delete</td>
         </tr>
         <?php

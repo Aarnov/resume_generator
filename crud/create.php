@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION["loggedin"])) {
+    header("location:../login.php");
+}
 require_once "config_demo.php";
 
 // Define variables and initialize with empty values
@@ -70,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
+
                 header("location: new_retrieve.php");
             } else {
                 echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
@@ -107,10 +112,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="sample.php" class="nav-link" >Sample</a>
+                    <a href="../sample.php" class="nav-link" >Sample</a>
                 </li>
                 <li class="nav-item">
-                    <a href="make_your_own.php" class="nav-link" >Make your own</a>
+                    <a href="../make_your_own.php" class="nav-link" >Make your own</a>
                 </li>
                 <li class="nav-item">
                     <a href="crud/create.php" class="nav-link">My Info</a>
@@ -152,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Info Form</h2>
             </div>
             <div class="card-body">
-                <form action="new_retrieve.php" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="first_name">First Name</label>
                         <input type="text" name="first_name" class="form-control" id="first_name" placeholder="">
