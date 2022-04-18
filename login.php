@@ -1,7 +1,9 @@
 <?php
-
 //This script will handle login
 session_start();
+if(isset($_SESSION['loggedin'])){
+    header("location:main_page.php");
+}
 
 // check if the user is already logged in
 if(isset($_SESSION['email']))
